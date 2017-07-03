@@ -1,0 +1,7 @@
+Get-ChildItem -filter "¶ùÍ¯¸èÇú -*" |foreach { rename-item $_.fullname $_.fullname.replace('¶ùÍ¯¸èÇú -','')}
+
+Get-ChildItem -filter "*-*.krc" |foreach { rename-item $_.fullname $_.fullname.replace('¶ùÍ¯¸èÇú -','')}
+Get-ChildItem -filter "*-*.krc" |foreach { $_.fullname -replace '-[0-9,a-z].*.krc','.krc' }
+
+
+Get-ChildItem -filter "*-*.krc" |foreach { rename-item $_.fullname ($_.fullname -replace '-[0-9,a-z].*.krc','.krc') }
